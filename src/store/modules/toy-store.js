@@ -1,15 +1,20 @@
+import { includeBooleanAttr } from '@vue/shared'
 import { toyService } from '../../services/toy-service.js'
 export default {
     state: {
         toys: null,
         filterBy: {
-            type:null
+            type:false,
+            searchBy:'',
         }
     },
     getters: {
         toys(state) {
-            var toysForDisplay 
-            return state.toys
+            if(!state.toys) return
+            var toysForDisplay =state.toys
+            toysForDisplay = state.toys.filter(toy => (!state.filterBy.type || state.filterBy.type === toy.type)
+            &&(!state.filterBy.searchBy||toy.name.includes(state.filterBy.searchBy)))
+            return toysForDisplay
         },
     },
     mutations: {
@@ -21,7 +26,7 @@ export default {
             state.toys.splice(idx, 1)
         },
         setFilter(state, {filterBy}){
-            state.filterBy = filterBy
+            state.filterBy = JSON.parse(JSON.stringify(filterBy))
         }
     },
     actions: {

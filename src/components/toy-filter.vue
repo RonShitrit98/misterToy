@@ -3,11 +3,13 @@
         <div>
             <p>filter by type:</p>
             <select @change="filterToys" v-model="filterBy.type">
-                <option value="null">Type</option>
+                <option :value="false">Type</option>
                 <option value="Adult">Adult</option>
                 <option value="Funny">Funny</option>
                 <option value="Educational">Educational</option>
             </select>
+            <p>search name:</p>
+            <input type="text" @keyup="filterToys" v-model="filterBy.searchBy" placeholder="search">
         </div>
     </section>
 </template>
@@ -17,7 +19,8 @@ export default {
     data() {
         return {
             filterBy: {
-                type: null
+                type: false,
+                searchBy: '',
             }
         }
     },

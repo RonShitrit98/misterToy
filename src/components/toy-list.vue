@@ -4,12 +4,14 @@
         <tr>
             <th>ID</th>
             <th>Name</th>
+            <th>Type</th>
             <th>Price</th>
             <th>Actions</th>
         </tr>
         <tr v-for="toy in toys" :key="toy._id">
             <td>{{ toy._id }}</td>
             <td>{{ toy.name }}</td>
+            <td>{{ toy.type }}</td>
             <td>{{ toy.price }}</td>
             <td>
                 <router-link :to="'/toy/' + toy._id">Details</router-link>

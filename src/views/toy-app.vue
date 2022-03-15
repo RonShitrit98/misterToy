@@ -1,7 +1,7 @@
 <template>
         <div class="wrapper">
             <h1>toy app!!</h1>
-            <toy-filter></toy-filter>
+            <toy-filter v-if="$store.getters.toys"></toy-filter>
             <toy-list></toy-list>
             <nav></nav>
         </div>
