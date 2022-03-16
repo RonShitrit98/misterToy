@@ -3,7 +3,7 @@
     <div v-if="toy">
         <p>name: {{ toy.name }}</p>
         <p>type: {{ toy.type }}</p>
-        <p>labels: {{toy.labels.join(' ,')}}</p>
+        <p>labels: {{toy.labels}}</p>
         <p>{{ isInStock }}</p>
         <p>price: {{ toy.price }}</p>
     </div>

@@ -15,7 +15,9 @@ import { toyService } from '../services/toy-service.js'
 export default {
     created() {
         toyService.getById(+this.$route.params.toyId)
-            .then(toy => this.toy = toy)
+            .then(toy => {this.toy = toy
+            console.log(toy)
+            })
     },
     data() {
         return {

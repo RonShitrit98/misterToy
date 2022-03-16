@@ -3,7 +3,7 @@
         <div>
             <p>filter by type:</p>
             <select @change="filterToys" v-model="filterBy.type">
-                <option :value="false">Type</option>
+                <option :value="''">Type</option>
                 <option value="Adult">Adult</option>
                 <option value="Funny">Funny</option>
                 <option value="Educational">Educational</option>
@@ -19,14 +19,14 @@ export default {
     data() {
         return {
             filterBy: {
-                type: false,
+                type: '',
                 searchBy: '',
             }
         }
     },
     methods:{
         filterToys(){
-            this.$store.commit({type:'setFilter', filterBy:this.filterBy})
+            this.$store.dispatch({type:'setFilter', filterBy:this.filterBy})
         }
     }
 }

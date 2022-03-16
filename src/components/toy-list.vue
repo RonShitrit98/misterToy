@@ -17,7 +17,7 @@
                 <router-link :to="'/toy/' + toy._id">Details</router-link>
                 <router-link :to="'/toy/edit/' + toy._id">Edit</router-link>
                 <router-link to="/toy/add/">Add</router-link>
-                <label @click="removeToy(+toy._id)">X</label>
+                <label @click="removeToy(toy._id)">X</label>
             </td>
         </tr>
     </table>
